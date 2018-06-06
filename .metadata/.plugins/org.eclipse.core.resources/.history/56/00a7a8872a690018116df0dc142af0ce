@@ -1,0 +1,11 @@
+package br.com.fiap.entidades;
+
+public class Cursos {
+	
+	private int idCursos;
+	private String nome;
+	private String descricao;
+	private Escola escola;
+	private Alunos aluno;
+
+}

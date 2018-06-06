@@ -1,0 +1,16 @@
+package br.com.fiap.entidades;
+
+import java.util.Date;
+
+public class Cursos {
+	
+	private int idCursos;
+	private String nome;
+	private String descricao;
+	private Escola escola;
+	private Alunos aluno;
+	private Date inicio;
+	private Date termino;
+	private String periodo;
+
+}
