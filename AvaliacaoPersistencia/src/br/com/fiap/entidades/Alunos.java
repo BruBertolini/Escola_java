@@ -1,12 +1,20 @@
 package br.com.fiap.entidades;
 
+import java.util.List;
+
+import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
+
 public class Alunos {
 	
 	private int idAlunos;
 	private String nome;
 	private String email;
-	private Cursos curso;
 	
+	@ManyToMany(fetch=FetchType.LAZY, mappedBy="alunos")
+	private List<Cursos> cursos;
+	
+
 	public int getIdAlunos() {
 		return idAlunos;
 	}
@@ -25,13 +33,13 @@ public class Alunos {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Cursos getCurso() {
-		return curso;
+
+	public List<Cursos> getCursos() {
+		return cursos;
 	}
-	public void setCurso(Cursos curso) {
-		this.curso = curso;
+	public void setCursos(List<Cursos> cursos) {
+		this.cursos = cursos;
 	}
-	
 	
 
 }

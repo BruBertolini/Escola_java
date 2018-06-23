@@ -1,5 +1,9 @@
 package br.com.fiap.entidades;
 
+import java.util.List;
+
+import javax.persistence.OneToMany;
+
 public class Escola {
 	
 	private int idEscola;
@@ -7,6 +11,9 @@ public class Escola {
 	private String endereco;
 	private String telefone;
 	private String email;
+	
+	@OneToMany(mappedBy = "escola")
+	private List<Cursos> listaCursos;
 	
 	
 	public int getIdEscola() {
@@ -38,6 +45,12 @@ public class Escola {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public List<Cursos> getListaCursos() {
+		return listaCursos;
+	}
+	public void setListaCursos(List<Cursos> listaCursos) {
+		this.listaCursos = listaCursos;
 	}
 	
 	
