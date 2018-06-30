@@ -14,7 +14,7 @@ public class EscolaMapper implements RowMapper {
 		
 		Escola escola = new Escola();
 		
-		escola.setIdEscola(rs.getInt("ID"));
+		escola.setIdEscola(rs.getInt("IDESCOLA"));
 		escola.setNome(rs.getString("NOME"));
 		escola.setEndereco(rs.getString("ENDERECO"));
 		escola.setTelefone(rs.getString("TELEFONE"));

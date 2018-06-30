@@ -54,7 +54,7 @@ public class JdbcEscolaDao {
 			List<Escola> escolas = new ArrayList<>();     
 				try {    
 					escolas = this.jdbcTemplate.query(
-							"SELECT * FROM ESCOLA",      
+					"SELECT * FROM ESCOLA", 
 							new EscolaMapper());      
 					} catch (Exception e) {    
 						throw e;   

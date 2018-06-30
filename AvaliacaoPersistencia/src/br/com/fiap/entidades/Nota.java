@@ -26,11 +26,11 @@ public class Nota {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ALUNOS_ID")
-	private Alunos aluno;
+	private Aluno aluno;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "CURSOS_ID")
-	private Cursos curso;
+	private Curso curso;
 	
 	
 	public int getIdNota() {
@@ -45,16 +45,16 @@ public class Nota {
 	public void setNota(double nota) {
 		this.nota = nota;
 	}
-	public Alunos getAluno() {
+	public Aluno getAluno() {
 		return aluno;
 	}
-	public void setAluno(Alunos aluno) {
+	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
 	}
-	public Cursos getCurso() {
+	public Curso getCurso() {
 		return curso;
 	}
-	public void setCurso(Cursos curso) {
+	public void setCurso(Curso curso) {
 		this.curso = curso;
 	}
 	

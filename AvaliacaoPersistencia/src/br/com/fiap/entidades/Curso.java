@@ -1,5 +1,6 @@
 package br.com.fiap.entidades;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +22,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "cursos")
-public class Cursos {
+public class Curso {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -40,11 +41,11 @@ public class Cursos {
 
 	@Column(name = "INICIO")
 	@Temporal(TemporalType.DATE)
-	private Date inicio;
+	private Calendar inicio;
 
 	@Column(name = "TERMINO")
 	@Temporal(TemporalType.DATE)
-	private Date termino;
+	private Calendar termino;
 
 	@Column(name = "PERIODO")
 	private String periodo;
@@ -85,19 +86,19 @@ public class Cursos {
 	}
 
 
-	public Date getInicio() {
+	public Calendar getInicio() {
 		return inicio;
 	}
 
-	public void setInicio(Date inicio) {
+	public void setInicio(Calendar inicio) {
 		this.inicio = inicio;
 	}
 
-	public Date getTermino() {
+	public Calendar getTermino() {
 		return termino;
 	}
 
-	public void setTermino(Date termino) {
+	public void setTermino(Calendar termino) {
 		this.termino = termino;
 	}
 
@@ -109,4 +110,8 @@ public class Cursos {
 		this.periodo = periodo;
 	}
 
+	@Override
+	public String toString() {
+		return this.nome;
+	}
 }

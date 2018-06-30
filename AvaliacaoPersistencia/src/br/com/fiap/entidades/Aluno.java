@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "alunos")
-public class Alunos {
+public class Aluno {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -58,6 +58,10 @@ public class Alunos {
 		this.listaNotas = listaNotas;
 	}
 
+	@Override
+	public String toString() {
+		return this.nome;
+	}
 
 
 }

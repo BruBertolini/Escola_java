@@ -64,6 +64,10 @@ public class Escola {
 		this.email = email;
 	}
 
+	@Override
+	public String toString() {
+		return this.nome;
+	}
 	
 
 }

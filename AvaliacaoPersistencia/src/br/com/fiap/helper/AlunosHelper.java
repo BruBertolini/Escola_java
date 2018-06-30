@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import br.com.fiap.entidades.Alunos;
+import br.com.fiap.entidades.Aluno;
 
 public class AlunosHelper {
 
@@ -15,7 +15,7 @@ public class AlunosHelper {
 		this.em = em;
 	}
 
-	public void salvar(Alunos aluno) throws Exception {
+	public void salvar(Aluno aluno) throws Exception {
 		try {
 			em.getTransaction().begin();
 			em.persist(aluno);
@@ -27,20 +27,20 @@ public class AlunosHelper {
 		}
 	}
 
-	public List<Alunos> listarAlunos() {
-		Query query = em.createQuery("select a from Alunos a");
+	public List<Aluno> listarAlunos() {
+		Query query = em.createQuery("select a from Aluno a");
 		return query.getResultList();
 	}
 
-	public Alunos buscarAluno(String idAluno) {
-		Query query = em.createQuery("select a from Alunos a where	idalunos = :idAluno");
+	public Aluno buscarAluno(String idAluno) {
+		Query query = em.createQuery("select a from Aluno a where	idalunos = :idAluno");
 		query.setParameter("idAluno", idAluno);
-		Alunos a = (Alunos) query.getSingleResult();
+		Aluno a = (Aluno) query.getSingleResult();
 		return a;
 	}
 
-	public List<Alunos> listarTodos() {
-		Query query = em.createNamedQuery("Cursos.findAll");
+	public List<Aluno> listarTodos() {
+		Query query = em.createNamedQuery("Aluno.findAll");
 		return query.getResultList();
 	}
 }
