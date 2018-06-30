@@ -1,6 +1,8 @@
-package br.fiap.com.app;
+package br.com.fiap.app;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -33,22 +35,19 @@ public class CursosApp {
 		curso.setTermino(new Date());
 		curso.setNome("Nome Curso");
 		curso.setPeriodo("1");
-		
-		Alunos aluno = new Alunos();
-		aluno.setNome("Bruna");
-		aluno.setEmail("emai@email.com");
-		
-		curso.setAluno(aluno);
-		
+				
 		Escola escola = new Escola();
 		escola.setNome("Nome");
 		escola.setEndereco("endereco");
 		escola.setTelefone("121567");
 		escola.setEmail("email@email.com");
+		escola.setIdEscola(1);
+		
 		curso.setEscola(escola);
 		
 		try {
 			helper.salvar(curso);
+			System.out.println("Curso cadastrado");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

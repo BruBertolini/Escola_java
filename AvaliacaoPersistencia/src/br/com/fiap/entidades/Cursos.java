@@ -1,6 +1,7 @@
 package br.com.fiap.entidades;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -32,15 +34,9 @@ public class Cursos {
 	@Column(name = "DESCRICAO")
 	private String descricao;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ESCOLA_ID")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "Escola_id")
 	private Escola escola;
-
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "CURSO_ALUNO", catalog = "dbescola", joinColumns = {
-			@JoinColumn(name = "idCursos", nullable = false, updatable = false) }, inverseJoinColumns = {
-					@JoinColumn(name = "idAluno", nullable = false, updatable = false) })
-	private Alunos alunos;
 
 	@Column(name = "INICIO")
 	@Temporal(TemporalType.DATE)
@@ -52,6 +48,9 @@ public class Cursos {
 
 	@Column(name = "PERIODO")
 	private String periodo;
+	
+	@OneToMany(mappedBy="curso")
+	private List<Nota> listaNotas;
 
 	public int getIdCursos() {
 		return idCursos;
@@ -85,13 +84,6 @@ public class Cursos {
 		this.escola = escola;
 	}
 
-	public Alunos getAluno() {
-		return alunos;
-	}
-
-	public void setAluno(Alunos alunos) {
-		this.alunos = alunos;
-	}
 
 	public Date getInicio() {
 		return inicio;

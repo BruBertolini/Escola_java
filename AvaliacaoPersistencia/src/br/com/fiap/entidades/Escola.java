@@ -2,18 +2,35 @@ package br.com.fiap.entidades;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "escola")
 public class Escola {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "idEscola", unique = true, nullable = false)
 	private int idEscola;
+	
+	@Column(name = "NOME")
 	private String nome;
+	
+	@Column(name = "ENDERECO")
 	private String endereco;
+	
+	@Column(name = "TELEFONE")
 	private String telefone;
+	
+	@Column(name = "EMAIL")
 	private String email;
 	
-	@OneToMany(mappedBy = "escola")
-	private List<Cursos> listaCursos;
 	
 	
 	public int getIdEscola() {
@@ -46,13 +63,7 @@ public class Escola {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public List<Cursos> getListaCursos() {
-		return listaCursos;
-	}
-	public void setListaCursos(List<Cursos> listaCursos) {
-		this.listaCursos = listaCursos;
-	}
-	
+
 	
 
 }
